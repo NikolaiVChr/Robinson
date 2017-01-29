@@ -394,12 +394,23 @@
 
     <channel name="collective">
       <summer name="fcs/collective-cmd-norm">
-        <input> fcs/advance-cmd-norm </input>
+        <input> fcs/throttle-cmd-norm </input>
         <bias> .0 </bias>
       </summer>
+      <fcs_function name="fcs/collective-invert"><!-- The two correlator gains should multiply to 1.00 at full throttle -->
+        <function>
+          <sum>
+            <product>
+              <property>  fcs/collective-cmd-norm </property>
+              <value> -1.0 </value>
+            </product>
+            <value>  1.0 </value>
+          </sum>
+        </function>
+      </fcs_function>
       <lag_filter name="fcs/collective-lag">
         <!-- advance to collective kludge -->
-        <input> fcs/collective-cmd-norm </input>
+        <input> fcs/collective-invert </input>
         <c1>    5.0 </c1>
       </lag_filter>
       <pure_gain name="fcs/collective-gain">
@@ -434,7 +445,7 @@
       </fcs_function>
 
       <pure_gain name="systems/correlator/throttle-gain">
-        <input>  fcs/throttle-cmd-norm </input><!-- governor will eventually adjust this property -->
+        <input>  fcs/advance-cmd-norm </input><!-- governor will eventually adjust this property -->
         <gain>   0.54054 </gain>
       </pure_gain>
 
