@@ -203,7 +203,8 @@
 
     <end>
         <message>Ready for take off{|.}
-        Handle carefully , and enjoy your flight !{|.}
+        Handle carefully , and enjoy your flight{|.}
+        Keys 'n' and 'N' for throttle. !{|.}
         </message>
         <view>
             <heading-offset-deg>0</heading-offset-deg>
