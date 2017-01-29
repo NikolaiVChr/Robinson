@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+
+<!-- 
+Refence
+http://www.proprofs.com/flashcards/tableview.php?title=robinson-r22-poh-1-general
+
+NTSB/SIR-96/03 
+-->
+
+<rotor name="r22_rotor">
+
+  <diameter  unit="FT">                  25.167 </diameter>
+  <numblades>                               2 </numblades>
+  <gearratio>                               5 </gearratio> <!-- 47:11 * 1:.8536 -->
+  <nominalrpm>                          510.0 </nominalrpm> <!-- engine 2550rpm  -->
+  <chord unit="FT">                       0.6 </chord>
+  <liftcurveslope>                        5.76</liftcurveslope> <!-- From YASim -->
+  <twist unit="DEG">                     -8.0 </twist>
+
+<!-- Guesses -->
+  <maxbrakepower>16</maxbrakepower> <!-- controls only use half of this -->
+
+<!-- Moments -->
+ <!-- Defaults
+       Blade Flapping Moment = 26.357575
+       Blade Mass Moment = 2.827729
+       Polar Moment = 57.986665
+  -->
+ <!-- Calculated -->
+ <!--  Flapping Moment  26 lb * (12 ft)^2 / 3 = 38.8 slug ft^2
+       Mass Moment  26 lb * 42in             =  2.8 slug ft
+       Polar moment 52lb*(302 in)^2 / 12     = 86.0 slug ft^2
+  -->
+  <flappingmoment unit="SLUG*FT2">      38.8 </flappingmoment>
+  <massmoment>                           2.82 </massmoment>
+  <polarmoment unit="SLUG*FT2">         86.0 </polarmoment>
+
+
+<!-- From here down isn't correct or verified -->
+  <tiplossfactor>                        0.98 </tiplossfactor>
+  <inflowlag>                            0.09 </inflowlag>
+  <hingeoffset unit="FT">                0.50 </hingeoffset>
+  <groundeffectexp>                      0.081 </groundeffectexp>
+  <groundeffectshift unit="FT">          0.0 </groundeffectshift>
+  <gearloss>                             0.0</gearloss>
+
+
+
+</rotor>

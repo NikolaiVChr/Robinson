@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+
+<!--  =================================================================
+
+       This file will attemt to create properties similar to the YASim Model
+       so the animations and sounds just work
+
+      =================================================================  -->
+
+<system name="fgfs layer">
+
+  <channel name="propulsion">
+    <fcs_function name="/engines/engine/n1">
+      <function>
+        <product>
+          <property> propulsion/engine/engine-rpm </property>
+          <value> 0.039 </value>
+        </product>
+      </function>
+    </fcs_function>
+  </channel>
+<property value="1.5"> systems/electrical/starter-gain</property>
+<property value="0.0"> /systems/electrical/sources/bus</property>
+
+  <channel name="starter">
+     <pure_gain name="systems/electrical/starter-norm">
+        <input> /systems/electrical/sources/bus </input>
+        <gain> systems/electrical/starter-gain   </gain>
+        <output> propulsion/engine/starter-norm </output>
+      </pure_gain>
+
+  </channel>
+
+  <channel name="oil-system">
+     <pure_gain name="systems/engine/oilpressire-norm">
+        <input> propulsion/engine/oil-pressure-psi </input>
+        <gain>  0.01  </gain>
+        <output> /engines/engine/oilp-norm </output>
+      </pure_gain>
+
+     <pure_gain name="systems/engine/oiltemp-norm">
+        <input> propulsion/engine/oil-temperature-degF </input>
+        <gain>   0.0041 </gain>
+        <output> /engines/engine/oilt-norm </output>
+      </pure_gain>
+
+     <pure_gain name="systems/engine/cylhd-norm">
+        <input> propulsion/engine/cht-degF </input>
+        <gain>   0.002 </gain>
+        <output> /engines/engine/cylhd-norm </output>
+      </pure_gain>
+  </channel>
+
+<property value="1.0"> /controls/engines/engine/clutch </property>
+
+  <channel name="rotor">
+  
+    <pure_gain name="systems/rotor/clutch-cmd">
+      <input>/controls/engines/engine/clutch</input>
+      <gain> 1.0 </gain>
+      <output> fcs/clutch-tension-cmd </output>
+    </pure_gain>
+
+    <fcs_function name="/rotors/main/rpm">
+      <function>
+        <product>
+          <property> propulsion/engine/rotor-rpm </property>
+          <value> 1. </value>
+        </product>
+      </function>
+    </fcs_function>
+
+    <fcs_function name="/rotors/tail/rpm">
+      <function>
+        <product>
+          <property> propulsion/engine[1]/rotor-rpm </property>
+          <value> 1. </value>
+        </product>
+      </function>
+    </fcs_function>
+
+  </channel>
+</system>

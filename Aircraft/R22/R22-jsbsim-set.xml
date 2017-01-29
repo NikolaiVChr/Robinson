@@ -1,0 +1,397 @@
+<?xml version="1.0"?>
+<!--
+############
+Robinson R-22 Beta II
+Syd Adams
+############
+-->
+
+<PropertyList>
+
+    <sim>
+        <description>Robinson R22 Beta II</description>
+        <author>Syd Adams, Maik Justus Ron Jensen</author>
+        <flight-model>jsb</flight-model>
+        <aero>R22-jsbsim</aero>
+        <startup>
+            <splash-texture>Aircraft/R22/splash.png</splash-texture>
+        </startup>
+
+        <tutorials>
+        <tutorial include="Tutorials/startup_tutorial.xml"/>
+        </tutorials>
+
+        <model>
+            <path>Aircraft/R22/Models/R22.xml</path>
+            <livery>
+                <file type="string">Red</file>
+            </livery>
+            <doors-removed type="bool" userarchive="y">0</doors-removed>
+            <shadeless type="bool" userarchive="y">1</shadeless>
+        </model>
+
+        <hud>
+            <enable3d>false</enable3d>
+        </hud>
+
+        <systems>
+            <path>Aircraft/R22/Systems/systems.xml</path>
+<!--
+            <autopilot>
+                <path>Aircraft/R22/Systems/auto-assist.xml</path>
+            </autopilot>
+-->
+        </systems>
+
+        <instrumentation>
+            <path>Aircraft/R22/Systems/instrumentation.xml</path>
+        </instrumentation>
+
+        <sound>
+            <path>Aircraft/R22/R22-jsbsim-sound.xml</path>
+            <volume1 type="double">0.5</volume1>
+            <click type="bool">0</click>
+        </sound>
+
+        <virtual-cockpit archive="y">true</virtual-cockpit>
+        <allow-toggle-cockpit archive="y">true</allow-toggle-cockpit>
+
+        <view>
+            <internal archive="y">true</internal>
+            <config>
+                <ground-level-nearplane-m type="double">0.1f</ground-level-nearplane-m>
+                <x-offset-m archive="y">0.20</x-offset-m>
+                <y-offset-m archive="y">-1.24</y-offset-m>
+                <z-offset-m archive="y">-0.4</z-offset-m>
+                <pitch-offset-deg>0</pitch-offset-deg>
+            </config>
+        </view>
+
+    <view n="1">
+        <config>
+            <ground-level-nearplane-m type="double">0.1f</ground-level-nearplane-m>
+            <target-y-offset-m archive="y" type="double">-1.5</target-y-offset-m>
+            <target-z-offset-m archive="y" type="double">-0.5</target-z-offset-m>
+        </config>
+    </view>
+        
+    <view n="2">
+        <config>
+            <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
+            <target-y-offset-m archive="y" type="double">-1.5</target-y-offset-m>
+            <target-z-offset-m archive="y" type="double">-0.5</target-z-offset-m>
+        </config>
+    </view>
+    
+        
+    <view n="4">
+        <config>
+            <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
+            <target-y-offset-m archive="y" type="double">-1.5</target-y-offset-m>
+            <target-z-offset-m archive="y" type="double">-1</target-z-offset-m>
+        </config>
+    </view>
+        
+        
+    <view n="6">
+        <config>
+            <target-y-offset-m archive="y" type="double">-1.5</target-y-offset-m>
+            <target-z-offset-m archive="y" type="double">-0.5</target-z-offset-m>
+        </config>
+    </view>
+
+    <view n="7">
+        <config>
+            <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
+            <target-y-offset-m archive="y" type="double">-1.5</target-y-offset-m>
+            <target-z-offset-m archive="y" type="double">-0.5</target-z-offset-m>
+        </config>
+    </view>
+
+    <view n="100">
+        <name>Panel View</name>
+        <type>lookfrom</type>
+        <internal type="bool">true</internal>
+        <config>
+            <ground-level-nearplane-m type="double">0.1f</ground-level-nearplane-m>
+            <from-model type="bool">true</from-model>
+            <from-model-idx type="int">0</from-model-idx>
+            <ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
+            <default-field-of-view-deg type="double">35.0</default-field-of-view-deg>
+            <default-pitch-deg type="double">0</default-pitch-deg>
+            <default-heading-deg type="double">0</default-heading-deg>
+            <front-direction-deg type="double">0</front-direction-deg>
+            <front-left-direction-deg type="double">45</front-left-direction-deg>
+            <left-direction-deg type="double">90</left-direction-deg>
+            <back-left-direction-deg type="double">135</back-left-direction-deg>
+            <back-direction-deg type="double">180</back-direction-deg>
+            <back-right-direction-deg type="double">225</back-right-direction-deg>
+            <right-direction-deg type="double">270</right-direction-deg>
+            <front-right-direction-deg type="double">315</front-right-direction-deg>
+            <x-offset-m archive="y">0.2</x-offset-m>
+            <y-offset-m archive="y">-1.2</y-offset-m>
+            <z-offset-m archive="y">-0.55</z-offset-m>
+            <heading-offset-deg>15.5</heading-offset-deg>
+            <pitch-offset-deg>-27.5</pitch-offset-deg>
+        </config> 
+    </view>
+
+        <chase-distance-m type="double" archive="y">-15.0</chase-distance-m>
+
+    <weight n="0">
+            <name>Pax</name>
+            <weight-lb>180</weight-lb>
+            <max-lb>240</max-lb>
+            <min-lb>0</min-lb>
+        </weight>
+
+        <weight n="1">
+            <name>Pilot</name>
+            <weight-lb>180</weight-lb>
+            <max-lb>240</max-lb>
+            <min-lb>100</min-lb>
+        </weight>
+
+        <help>
+            <title>Robinson R-22</title>
+            <line></line>
+            <key>
+                <name>y</name>
+                <desc>Toggle yokes on / off</desc>
+            </key>
+            <key>
+                <name>{</name>
+                <desc>Turn ignition key off</desc>
+            </key>
+            <key>
+                <name>}</name>
+                <desc>Turn ignition key on</desc>
+            </key>
+            <key>
+                <name>s</name>
+                <desc>Engage starter</desc>
+            </key>
+            <key>
+                <name>(</name>
+                <desc>toggle alternator switch</desc>
+            </key>
+            <key>
+                <name>)</name>
+                <desc>toggle battery switch</desc>
+            </key>
+            <key>
+                <name>B</name>
+                <desc>toggle rotor brake</desc>
+            </key>
+            <key>
+                <name>Ctrl A</name>
+                <desc>toggle auto-pedals</desc>
+            </key>
+        </help>
+
+    <yokes-visible type="bool" userarchive="y">1</yokes-visible>
+
+    <menubar>
+        <default>
+            <menu n="10">
+                <label>R22</label>
+                <enabled type="bool">true</enabled>
+                <item>
+                    <label>Autostart</label>
+                    <binding>
+                        <command>property-toggle</command>
+                        <property>sim/model/autostart</property>
+                    </binding>
+                </item>
+                <item>
+                    <label>Options</label>
+                    <binding>
+                        <command>nasal</command>
+                        <script>dialogs.options.open()</script>
+                    </binding>
+                </item>
+                <item>
+                    <label>Select Livery</label>
+                    <binding>
+                        <command>nasal</command>
+                        <script>aircraft.livery.dialog.toggle()</script>
+                    </binding>
+                </item>
+            </menu>
+        </default>
+    </menubar>
+
+    </sim>
+
+    <engines>
+        <engine>
+            <cranking type="bool">0</cranking>
+            <rpm type="double">500</rpm>
+            <running type="bool">false</running>
+            <clutch-engaged type="bool">false</clutch-engaged>
+        </engine>
+    </engines>
+
+    <controls>
+        <engines>
+            <engine>
+                <throttle>0.0</throttle>
+                <clutch type="bool">0</clutch>
+                <clutchguard type="bool">0</clutchguard>
+            </engine>
+        </engines>
+        <flight>
+            <aileron-trim>0</aileron-trim>
+            <elevator-trim>0</elevator-trim>
+            <auto-pedals userarchive="y">0</auto-pedals><!-- when no pedal controller available -->
+        </flight>
+        <gear>
+            <brake-parking>1</brake-parking>
+        </gear>
+        <electric>
+            <key type="int">0</key>
+            <battery-switch>0</battery-switch>
+            <engine>
+                <generator>0</generator>
+            </engine>
+        </electric>
+        <rotor>
+            <engine-throttle type="double">1.0</engine-throttle>
+            <brake>0</brake>
+        </rotor>
+        <lighting>
+            <dimmer-switch type="double">0.5</dimmer-switch>
+            <landing-lights type="bool">0</landing-lights>
+        </lighting>
+    </controls>
+
+    <consumables>
+        <fuel>
+            <tank n="0">
+                <name>Main</name>
+                <level-lbs>10.0</level-lbs>
+                <selected type="bool">1</selected>
+            </tank>
+            <tank n="1">
+                <name>Auxilary</name>
+                <level-lbs>0</level-lbs>
+                <selected type="bool">1</selected>
+            </tank>
+        </fuel>
+    </consumables>
+
+ <payload>
+  <weight>
+   <name type="string">Pilot</name>
+   <weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[0]"/>
+   <min-lb type="double">0.0</min-lb>
+   <max-lb type="double">250.0</max-lb>
+  </weight>
+  <weight>
+   <name type="string">Co-Pilot</name>
+   <weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[1]"/>
+   <min-lb type="double">0.0</min-lb>
+   <max-lb type="double">250.0</max-lb>
+  </weight>
+</payload> 
+<limits>
+ <mass-and-balance>
+  <maximum-takeoff-mass-lbs type="double">1370</maximum-takeoff-mass-lbs>
+ </mass-and-balance>
+</limits>
+ 
+    <input>
+        <keyboard>
+            <key n="123">
+                <name>{</name>
+                <desc>key off</desc>
+                <binding>
+                    <command>property-adjust</command>
+                    <property>controls/electric/key</property>
+                    <step>-1</step>
+                    <min>0</min>
+                    <max>3</max>
+                    <wrap>0</wrap>
+                </binding>
+            </key>
+            <key n="125">
+                <name>}</name>
+                <desc>key on</desc>
+                <binding>
+                    <command>property-adjust</command>
+                    <property>controls/electric/key</property>
+                    <step>1</step>
+                    <min>0</min>
+                    <max>3</max>
+                    <wrap>0</wrap>
+                </binding>
+            </key>
+            <key n="66">
+                <name>B</name>
+                <desc>Toggle rotor brake</desc>
+                <binding>
+                    <command>property-toggle</command>
+                    <property>controls/rotor/brake</property>
+                </binding>
+            </key>
+
+            <key n="40">
+                <name>(</name>
+                <desc>Toggle Alternator Switch</desc>
+                <binding>
+                    <command>property-toggle</command>
+                    <property>controls/electric/engine/generator</property>
+                </binding>
+            </key>
+
+             <key n="41">
+                <name>)</name>
+                <desc>Toggle Battery Switch</desc>
+                <binding>
+                    <command>property-toggle</command>
+                    <property>controls/electric/battery-switch</property>
+                </binding>
+            </key>
+        </keyboard>
+    </input>
+
+    <instrumentation>
+      <alerts>
+        <mr-chip type="bool">0</mr-chip>
+        <mr-temp type="bool">0</mr-temp>
+        <tr-chip type="bool">0</tr-chip>
+        <oil     type="bool">0</oil>
+        <fuel    type="bool">0</fuel>
+        <clutch  type="bool">0</clutch>
+        <alt     type="bool">0</alt>
+        <brake   type="bool">0</brake>
+        <starter type="bool">0</starter>
+        <gov     type="bool">0</gov>
+        <co      type="bool">0</co>
+        <rpm     type="bool">0</rpm>
+      </alerts>
+    </instrumentation>
+
+
+    <systems>
+        <electrical>
+            <sources>
+                <battery type="double">12</battery>
+                <alternator type="double">12</alternator>
+                <bus type="double">0</bus>
+            </sources>
+        </electrical>
+    </systems>
+
+
+    <nasal>
+        <R22>
+            <file>Aircraft/R22/Nasal/Electrical.nas</file>
+            <file>Aircraft/R22/Nasal/R22-jsbsim.nas</file>
+        </R22>
+        <dialogs>
+            <file>Aircraft/R22/Nasal/dialogs.nas</file>
+        </dialogs>
+    </nasal>
+
+</PropertyList>

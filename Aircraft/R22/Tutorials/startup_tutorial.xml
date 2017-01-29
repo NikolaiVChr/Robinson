@@ -1,0 +1,214 @@
+<PropertyList>
+    <name>Start Up</name>
+    <description>R22 start procedure</description>
+
+    <init>
+        <set>
+            <property>/sim/current-view/view-number</property>
+            <value>0</value>
+        </set>
+        <set>
+            <property>/controls/electric/battery-switch</property>
+            <value>0</value>
+        </set>
+        <set>
+            <property>/controls/lighting/strobe</property>
+            <value>0</value>
+        </set>
+        <set>
+            <property>/controls/lighting/nav-lights</property>
+            <value>0</value>
+        </set>
+        <set>
+            <property>/controls/electric/engine[0]/generator</property>
+            <value>0</value>
+        </set>
+        <set>
+            <property>/controls/engines/engine[0]/clutch</property>
+            <value>0</value>
+        </set>
+        <set>
+            <property>/controls/engines/engine[0]/magnetos</property>
+            <value>0</value>
+        </set>
+        <set>
+            <property>/controls/engines/engine[0]/throttle</property>
+            <value>1.0</value>
+        </set>
+        <set>
+            <property>/engines/engine[0]/running</property>
+            <value>0</value>
+        </set>
+    </init>
+
+    <step>
+        <message>
+            Switch on Master battery.{|.}
+            Press "y" to hide yoke for better visibility.{|.}
+        </message>
+        <view>
+            <heading-offset-deg>347.40</heading-offset-deg>
+            <pitch-offset-deg>-37.65</pitch-offset-deg>
+            <field-of-view>15</field-of-view>
+        </view>
+        <error>
+            <message>Battery switch {|.}should be in the "up" position{|.}
+            </message>
+            <condition>
+                <not>
+                    <property>/controls/electric/battery-switch</property>
+                </not>
+            </condition>
+        </error>
+        <exit>
+            <condition>
+                <property>/controls/electric/battery-switch</property>
+            </condition>
+        </exit>
+    </step>
+
+    <step>
+        <message>
+            Switch on strobe light.{|.}
+        </message>
+        <view>
+            <heading-offset-deg>350.7</heading-offset-deg>
+            <pitch-offset-deg>-39.5</pitch-offset-deg>
+            <field-of-view>15</field-of-view>
+        </view>
+        <error>
+            <message>Switch on strobe light.{|.}
+            </message>
+            <condition>
+                <not>
+                        <property>/controls/lighting/strobe</property>
+                </not>
+            </condition>
+        </error>
+        <exit>
+            <condition>
+                <property>/controls/lighting/strobe</property>
+            </condition>
+        </exit>
+    </step>
+
+    <step>
+        <message>
+            Turn key to the right to start engine{|.}
+        </message>
+        <view>
+            <heading-offset-deg>341</heading-offset-deg>
+            <pitch-offset-deg>-38</pitch-offset-deg>
+            <field-of-view>15</field-of-view>
+        </view>
+        <error>
+            <message>Click on the right side of the key{|.}
+            until the engine starts cranking{|.}</message>
+            <condition>
+                <not>
+                    <property>/engines/engine[0]/running</property>
+                </not>
+            </condition>
+        </error>
+        <exit>
+            <condition>
+                <property>engines/engine[0]/running</property>
+            </condition>
+        </exit>
+    </step>
+
+    <step>
+        <message>
+            Click at the bottom {|.}
+            of the red clutch guard to lift it,{|.}
+            and engage the clutch{|.}
+            Make sure your collective "throttle" {|.}
+            is in the correct position !{|.}
+        </message>
+        <view>
+            <heading-offset-deg>347</heading-offset-deg>
+            <pitch-offset-deg>-39</pitch-offset-deg>
+            <field-of-view>15</field-of-view>
+        </view>
+        <error>
+            <message>Click at the bottom {|.}
+            of the red clutch guard to lift it,{|.}
+            and engage the clutch switch{|.}
+            Close the clutch guard{|.}
+            Make sure your collective "throttle" {|.}
+            is in the correct position !{|.}
+            </message>
+            <condition>
+                <not>
+                    <property>/controls/engines/engine[0]/clutch</property>
+                </not>
+            </condition>
+        </error>
+        <exit>
+            <condition>
+                <property>/controls/engines/engine[0]/clutch</property>
+            </condition>
+        </exit>
+    </step>
+
+    <step>
+        <message>
+            Switch on Alternator.{|.}
+        </message>
+        <view>
+            <heading-offset-deg>347.40</heading-offset-deg>
+            <pitch-offset-deg>-37.65</pitch-offset-deg>
+            <field-of-view>15</field-of-view>
+        </view>
+        <error>
+            <message>Alternator switch {|.}should be in the "up" position{|.}
+            </message>
+            <condition>
+                <not>
+                    <property>/controls/electric/engine[0]/generator</property>
+                </not>
+            </condition>
+        </error>
+        <exit>
+            <condition>
+                <property>/controls/electric/engine[0]/generator</property>
+            </condition>
+        </exit>
+    </step>
+
+    <step>
+        <message>
+            Switch on nav lights.{|.}
+        </message>
+        <view>
+            <heading-offset-deg>350.7</heading-offset-deg>
+            <pitch-offset-deg>-39.5</pitch-offset-deg>
+            <field-of-view>15</field-of-view>
+        </view>
+        <error>
+            <message>Switch on nav lights.{|.}
+            </message>
+            <condition>
+                <not>
+                    <property>/controls/lighting/nav-lights</property>
+                </not>
+            </condition>
+        </error>
+        <exit>
+            <condition>
+                <property>/controls/lighting/nav-lights</property>
+            </condition>
+        </exit>
+    </step>
+
+    <end>
+        <message>Ready for take off{|.}
+        Handle carefully , and enjoy your flight !{|.}
+        </message>
+        <view>
+            <heading-offset-deg>0</heading-offset-deg>
+            <pitch-offset-deg>-12</pitch-offset-deg>
+            <field-of-view>55</field-of-view>
+        </view>
+    </end>
+</PropertyList>

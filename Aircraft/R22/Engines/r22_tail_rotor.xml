@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!-- 
+Refence
+http://www.proprofs.com/flashcards/tableview.php?title=robinson-r22-poh-1-general
+-->
+
+<rotor name="r22_tail_rotor">
+
+    <diameter unit="FT">                  3.5 </diameter>
+    <numblades>                             2 </numblades>
+    <gearratio>                           0.78</gearratio><!-- 2:3 * 1:.8536 -->
+    <nominalrpm>                       3270.0 </nominalrpm>
+    <chord unit="FT">                     0.333</chord>
+    <twist>                               0.0 </twist>
+
+    <ExternalRPM> 0 </ExternalRPM>
+    <controlmap> TAIL </controlmap>
+
+<!-- From here down isn't correct or verified -->
+    <flappingmoment unit="SLUG*FT2">     1.45 </flappingmoment> <!-- guessed from ah1g lock number 2.23 -->
+    <liftcurveslope>                      7.0 </liftcurveslope>
+    <massmoment>                         0.46 </massmoment> <!-- SLUG*FT -->
+    <tiplossfactor>                       1.0 </tiplossfactor>
+    <inflowlag>                          0.09 </inflowlag> 
+    <hingeoffset unit="FT">             0.015 </hingeoffset>
+
+    <groundeffectexp>                   0.081 </groundeffectexp>
+    <groundeffectshift unit="FT">        10.0 </groundeffectshift>
+
+
+</rotor>

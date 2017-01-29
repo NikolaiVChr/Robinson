@@ -1,0 +1,13 @@
+== name ==         == object ==        == Property ==                      == status ==
+OIL PRESSURE       oil.annun           /instrumentation/alerts/oil         Not done, select anim only 
+MR TEMP            mr-temp.annun       /instrumentation/alerts/mr-temp     No logic
+MR CHIP            mr-chip.annun       /instrumentation/alerts/mr-chip     No logic
+TR CHIP            tr-chip.annun       /instrumentation/alerts/tr-chip     No logic
+LOW FUEL           fuel.annun          /instrumentation/alerts/fuel        Not done, select anim only 
+CLUTCH             clutch.annun        /instrumentation/alerts/clutch      Not done, select anim only 
+ALT                alt.annun           /instrumentation/alerts/alt         Not done, select anim only 
+BRAKE              brake.annun         /instrumentation/alerts/brake       Not done, select anim only 
+STARTER-ON         starter.annun       /instrumentation/alerts/starter     Not done, select anim only 
+GOV-OFF           *gov.annun           /instrumentation/alerts/gov         Not done, no object or logic
+CARBON MONOXIDE.  *co.annun            /instrumentation/alerts/co          Not done, no object or logic
+LOW RPM            rpm.annun           /instrumentation/alerts/rpm         Not done, select anim only 

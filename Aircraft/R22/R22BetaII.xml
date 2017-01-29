@@ -1,0 +1,202 @@
+<!--
+Robinson R22 Beta II specs:
+Weights
+Gross Weight 1,370 lb
+Empty Weight Equipped (w/full oil) 855 lb
+Fuel (19.2 gal) 115 lb
+Optional Auxiliary Fuel (10.5 gal) 	63 lb
+MAXIMUM PER SEAT WEIGHT: 240 lbs
+MINIMUM SOLO WEIGHT: 140 lb 
+
+Powerplant
+Lycoming O-360 Four-Cylinder, Air-Cooled
+Derated to 131 horsepower at 2652 rpm
+
+Performance
+Maximum Airspeed (Vne) 118 mph (102 kts)
+Cruise Airspeed @ 70% Power 110 mph (96 kts)
+Maximum Range (no reserve) Over 200 miles
+Maximum Range (w/aux fuel) Over 300 miles
+Average Fuel Consumption 8 to 10 gph
+Rate-of-Climb at Sea Level Over 1,000 fpm
+Rate-of-Climb at 10,000 Feet Over 600 fpm
+Maximum Operating Altitude 14,000 feet
+Hover Ceiling IGE @ 1370 GW 9,400 feet
+
+0 Fuel - Long. Arm 0.097536in
+Lat Arm 0.0in
+
+
+Rotor
+18 degree psuedo delta3
+530 rpm
+Airfoil NACA 63-015
+teetering hinge ...
+-->
+<airplane mass="855">
+
+    <approach speed="40" aoa="16" fuel="0">
+    </approach>
+
+    <cruise speed="102" alt="0" fuel="0">
+    </cruise>
+
+
+    <rotor name="main" x="0.0" y="0.0" z="0.0" nx="0" ny="0" nz="1.0" fx="1" fy="0" fz="0" ccw="1"
+    maxcollective="15" mincollective="0.0"
+    mincyclicele="-9" maxcyclicele="11"
+    mincyclicail="-9.5" maxcyclicail="6.0"
+    diameter="7.67" numblades="2" weightperblade="26" relbladecenter="0.51"
+    dynamic="0.95" rpm="530" rellenflaphinge="0.02" delta3="0.5"
+    delta=".25"
+    pitch-a="10"
+    pitch-b="15"
+    flapmin="-5"
+    flapmax="15"
+    flap0="-5"
+    phi0="1"
+    flap0factor="0"
+    notorque="0"
+    dragfactor="0.30"
+    translift-ve="20"
+    translift-maxfactor="1.1"
+    ground-effect-constant="0.2"
+    twist="-7"
+    taper="1"
+    chord="0.18288"
+    number-of-segments="8"
+    number-of-parts="8"
+    rel-len-where-incidence-is-measured="0.75"
+    rel-len-blade-start="0.002"
+    airfoil-lift-coefficient="5.5"
+    airfoil-drag-coefficient0="0.002"
+    airfoil-drag-coefficient1="0.1"
+    incidence-stall-zero-speed="18.0"
+    incidence-stall-half-sonic-speed="9.0"
+    lift-factor-stall="0.15"
+    stall-change-over="5.5"
+    drag-factor-stall="4.0"
+    cyclic-factor="0.60"
+    rotor-correction-factor="0.95"
+    downwashfactor="0.25"
+    >
+    <control-input axis="/controls/flight/aileron-trim" control="CYCLICAIL" split="true"/>
+    <control-input axis="/controls/flight/aileron" control="CYCLICAIL"
+        src0="-1.0" src1="1.0"
+        dst0="-1" dst1="1"/>
+    <control-input axis="/controls/flight/elevator-trim" control="CYCLICELE"/>
+    <control-input axis="/controls/flight/elevator" control="CYCLICELE"
+        src0="-1.0" src1="1.0"
+        dst0="-1.0" dst1="1.0"/>
+    <control-input axis="/controls/engines/engine[0]/throttle" control="COLLECTIVE"
+        src0="0.0" src1="1.0"
+        dst0="1.0" dst1="-1.0"/>
+    </rotor>
+
+
+<rotor name="tail" x="-4.41" y="-0.2" z="-0.94" nx="0.0" ny="-1" nz="0.0" fx="1" fy="0" fz="0" ccw="1"
+  maxcollective="24" mincollective="-26.0"
+  diameter="1.0668" numblades="2" weightperblade="2" relbladecenter="0.55"
+  dynamic="0.90" rpm="3356" rellenflaphinge="0.002" delta3="1" translift="0" delta="0.5"
+  sharedflaphinge="1"
+  pitch-a="10"
+  pitch-b="15"
+  airfoil-lift-coefficient="6.5"
+  airfoil-drag-coefficient0="0.002"
+  airfoil-drag-coefficient1="0.05"
+  incidence-stall-zero-speed="15"
+  incidence-stall-half-sonic-speed="10.5"
+  lift-factor-stall="0.26"
+  stall-change-over="5"
+  drag-factor-stall="6.0"
+  notorque="0"
+  taper="1"
+  chord="0.116"
+  number-of-segments="5"
+  number-of-parts="4"
+  rel-len-blade-start="0.2"
+  rotor-correction-factor="0.9"
+  downwashfactor="0.2"
+
+>
+<control-input axis="/controls/flight/rudder" control="COLLECTIVE"
+    src0="-1.0" src1="1.0"
+    dst0="1.0" dst1="-1.0"/>
+    <control-input axis="/controls/flight/rudder-trim" control="COLLECTIVE"
+    src0="-1.0" src1="1.0"
+    dst0="1.0" dst1="-1.0"/>
+</rotor>
+
+
+<rotorgear
+  max-power-engine="125"
+  max-power-rotor-brake="10"
+  rotorgear-friction="0.2"
+  engine-prop-factor="0.02"
+  engine-accel-limit="5"
+
+  yasimdragfactor="20"
+  yasimliftfactor="170"
+>
+  <control-input axis="engines/engine[0]/clutch-engaged" control="ROTORGEARENGINEON"/>
+  <control-input axis="/controls/rotor/brake" control="ROTORBRAKE"
+                 src0="0.0" src1="1.0"
+                 dst0="0.0" dst1="1.0"/>
+</rotorgear>
+
+<!--fake engine-->
+
+  <jet x="-0.193" y="0" z="-0.75" mass="275" thrust="1"
+   tsfc="53" rotate="0.0" egt="840" spool-time="2"
+   n1-idle="0.0" n1-max="100" n2-idle="0.0" n2-max="100">
+    <control-input axis="engines/engine/on" control="THROTTLE"/>
+    </jet>
+
+<cockpit x="0.5" y=".33" z="-1.2"/>
+
+<fuselage ax="1.348" ay="0" az="-1.574"
+  bx="-0.6" by="0" bz="-1.46" idrag="0"
+  width="1.1" taper="0.7" midpoint="0.5"
+  cy="1.2" cx="1.2"/><!--cabin-->
+
+<fuselage ax="-0.55" ay="0" az="-1.22"
+  bx="-4.308" by="0" bz="-0.928" idrag="0"
+  width="0.36" taper="0.2" midpoint="0.0"/><!--tail boom-->
+
+<vstab x="-0.01" y="0" z="-0.540" taper="0.7" length="0.716" chord="0.525">
+</vstab>
+
+
+<vstab x="-4.408" y="0" z="-1.493" taper="1" length="1.06" chord="0.22">
+  <stall aoa="16" width="4" peak="1.5"/>
+</vstab>
+
+<gear x="1.5" y="0.92" z="-2.558" skid="1" compression="0.10"
+spring="10.0" damp="0" sfric="0.2" dfric="0.5" initial-load="0.8">
+  </gear>
+<gear x="1.5" y="-0.92" z="-2.558" skid="1" compression="0.10"
+spring="10.0" damp="0" sfric="0.2" dfric="0.5" initial-load="0.8">
+  </gear>
+<gear x="-0.5" y="0.92" z="-2.558" skid="1" compression="0.10"
+spring="10.0" damp="0" sfric="0.2" dfric="0.5" initial-load="0.8">
+  </gear>
+<gear x="-0.5" y="-0.92" z="-2.558" skid="1" compression="0.10"
+spring="10.0" damp="0" sfric="0.2" dfric="0.5" initial-load="0.8">
+  </gear>
+
+<!-- tail rotor guard-->
+<gear x="-4.47" y="0.00" z="-1.8" skid="1" compression="0.01"
+spring="0.1" sfric="1" dfric="1"/>
+
+<tank x="-0.2185" y="-0.2794" z="-1.8" capacity="115.2"/><!--main-->
+<tank x="-0.09652" y="0.2718" z="-1.8" capacity="63"/><!--auxilary-->
+
+<weight x="0.5" y="0.3"  z="-1.5" mass-prop="/sim/weight[0]/weight-lb"/><!-- left seat-->
+<weight x="0.5" y="-0.3" z="-1.5" mass-prop="/sim/weight[1]/weight-lb"/><!-- right seat-->
+
+
+<ballast x="-0.2" y="0.0" z="-1.5" mass="250"/>
+
+
+
+</airplane>

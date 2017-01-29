@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="http://jsbsim.sf.net/JSBSimScript.xsl"?>
+<runscript xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://jsbsim.sf.net/JSBSimScript.xsd"
+    name="Initial engine test run">
+  <use aircraft="R22-jsbsim" initialize="Resources/reset00"/>
+  <run start="0.0" end="130" dt="0.00833333">
+    <event name="Start engine">
+      <condition>simulation/sim-time-sec  ge  2.</condition>
+      <set name="propulsion/magneto_cmd" value="3"/>
+      <set name="/systems/electrical/sources/bus" value="12"/>
+      <set name="fcs/throttle-cmd-norm[0]" action="FG_EXP" value="0.0" tc="0.1"/>
+      <set name="fcs/mixture-cmd-norm[0]" action="FG_EXP" value="1.0" tc="0.1"/>
+      <set name="fcs/advance-cmd-norm[0]" action="FG_EXP" value="0.0" tc="0.1"/>
+      <set name="propulsion/starter_cmd" value="1"/>
+      <set name="ap/afcs/psi-trim-rad" value="3.14"/>
+      <set name="ap/afcs/theta-trim-rad" value="-0.2"/>
+      <set name="ap/afcs/phi-trim-rad" value="0."/>
+      <notify/>
+    </event>
+    <event name="Idle">
+      <condition>
+        propulsion/engine[0]/engine-rpm  ge  800.0
+      </condition>
+      <set name="fcs/throttle-cmd-norm[0]" action="FG_EXP" value="0.0" tc="0.50"/>
+      <set name="propulsion/starter_cmd" value="0.0"/>
+      <notify/>
+    </event>
+    <event name="Throttle up">
+      <condition>simulation/sim-time-sec  ge  30</condition>
+      <set name="fcs/throttle-cmd-norm[0]" action="FG_EXP" value="1." tc="1.0"/>
+      <set name="fcs/advance-cmd-norm[0]"  action="FG_EXP" value="0." tc="1.0"/>
+      <set name="ap/afcs/roll-channel-active-norm" value="5.0"/> 
+      <set name="ap/afcs/yaw-channel-active-norm" value="-5.0"/> 
+      <set name="ap/afcs/pitch-channel-active-norm" value="5.0"/>
+      <notify/>
+    </event>
+    <event name="Throttle Full">
+      <condition>simulation/sim-time-sec  ge  40</condition>
+      <set name="fcs/throttle-cmd-norm[0]" action="FG_EXP" value="0.85" tc="1.0"/>
+      <set name="fcs/advance-cmd-norm[0]"  action="FG_EXP" value=" 1." tc="4.0"/>
+      <notify/>
+    </event>
+    <event name="Cruise">
+      <condition>simulation/sim-time-sec  ge  70</condition>
+      <set name="fcs/throttle-cmd-norm[0]" action="FG_EXP" value="0.85" tc="1.0"/>
+      <set name="fcs/advance-cmd-norm[0]"  action="FG_EXP" value=" .70" tc="1.0"/>
+      <set name="ap/afcs/theta-trim-rad" value="-0.1"/>
+      <notify/>
+    </event>
+    <event name="Throttle chop">
+      <condition>simulation/sim-time-sec  ge  100</condition>
+      <set name="fcs/throttle-cmd-norm[0]" action="FG_EXP" value="0.0" tc="1.0"/>
+      <set name="fcs/advance-cmd-norm[0]"  action="FG_EXP" value="0.0" tc="2.0"/>
+      <notify/>
+    </event>
+    <event name="Collective up">
+      <condition>simulation/sim-time-sec  ge  106</condition>
+      <set name="fcs/throttle-cmd-norm[0]" action="FG_EXP" value="0.0" tc="1.0"/>
+      <set name="fcs/advance-cmd-norm[0]"  action="FG_EXP" value="0.4" tc="1."/>
+      <notify/>
+    </event>
+  </run>
+</runscript>

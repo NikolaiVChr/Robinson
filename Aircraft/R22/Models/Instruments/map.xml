@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+<path>map.ac</path>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>MAP.needle</object-name>
+        <property>engines/engine[0]/mp-inhg</property>
+        <interpolation>
+            <entry><ind> 5.0</ind><dep>-21.6</dep></entry>
+            <entry><ind>35.0</ind><dep> 194.4</dep></entry>
+        </interpolation>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+        <center>
+            <x-m>0</x-m>
+            <y-m>0</y-m>
+            <z-m>0</z-m>
+        </center>
+    </animation>
+
+</PropertyList>

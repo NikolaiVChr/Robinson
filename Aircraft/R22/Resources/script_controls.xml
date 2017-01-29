@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="http://jsbsim.sf.net/JSBSimScript.xsl"?>
+<runscript xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://jsbsim.sf.net/JSBSimScript.xsd"
+    name="Initial Controls Test">
+  <use aircraft="R22-jsbsim" initialize="Resources/reset00"/>
+  <run start="0.0" end="50" dt="0.00833333">
+
+    <event name="Center Everything">
+      <condition>simulation/sim-time-sec  ge  .1</condition>
+      <set name="fcs/throttle-cmd-norm[0]" value="0.0"/>
+      <set name="fcs/advance-cmd-norm[0]"  value="0.0"/>
+      <set name="fcs/elevator-cmd-norm[0]" value="0.0"/>
+      <set name="fcs/aileron-cmd-norm[0]"  value="0.0"/>
+      <set name="fcs/rudder-cmd-norm[0]"  value="0.0"/>
+      <notify>
+        <property> fcs/throttle-pos-norm </property>
+        <property> propulsion/engine/collective-ctrl-rad </property>
+        <property> propulsion/engine/lateral-ctrl-rad </property>
+        <property> propulsion/engine/longitudinal-ctrl-rad </property>
+        <property> propulsion/engine[1]/antitorque-ctrl-rad </property>
+      </notify>
+    </event>
+
+    <event name="Throttle UP">
+      <condition>simulation/sim-time-sec  ge  5.</condition>
+      <set name="fcs/throttle-cmd-norm[0]" value="1.0"/>
+      <notify>
+        <property> fcs/throttle-pos-norm </property>
+        <property> propulsion/engine/collective-ctrl-rad </property>
+        <property> propulsion/engine/lateral-ctrl-rad </property>
+        <property> propulsion/engine/longitudinal-ctrl-rad </property>
+        <property> propulsion/engine[1]/antitorque-ctrl-rad </property>
+      </notify>
+    </event>
+
+    <event name="Collective UP">
+      <condition>simulation/sim-time-sec  ge  10.</condition>
+      <set name="fcs/throttle-cmd-norm[0]" value="1.0"/>
+      <set name="fcs/advance-cmd-norm[0]"  value="1.0"/>
+      <set name="fcs/elevator-cmd-norm[0]" value="0.0"/>
+      <set name="fcs/aileron-cmd-norm[0]"  value="0.0"/>
+      <set name="fcs/rudder-cmd-norm[0]"  value="0.0"/>
+      <notify>
+        <property> fcs/throttle-pos-norm </property>
+        <property> propulsion/engine/collective-ctrl-rad </property>
+        <property> propulsion/engine/lateral-ctrl-rad </property>
+        <property> propulsion/engine/longitudinal-ctrl-rad </property>
+        <property> propulsion/engine[1]/antitorque-ctrl-rad </property>
+      </notify>
+    </event>
+
+    <event name="Cyclic Lateral +">
+      <condition>simulation/sim-time-sec  ge  15.</condition>
+      <set name="fcs/throttle-cmd-norm[0]" value="0.0"/>
+      <set name="fcs/advance-cmd-norm[0]"  value="1.0"/>
+      <set name="fcs/elevator-cmd-norm[0]" value="0.0"/>
+      <set name="fcs/aileron-cmd-norm[0]"  value="1.0"/>
+      <set name="fcs/rudder-cmd-norm[0]"  value="0.0"/>
+      <notify>
+        <property> fcs/throttle-pos-norm </property>
+        <property> propulsion/engine/collective-ctrl-rad </property>
+        <property> propulsion/engine/lateral-ctrl-rad </property>
+        <property> propulsion/engine/longitudinal-ctrl-rad </property>
+        <property> propulsion/engine[1]/antitorque-ctrl-rad </property>
+      </notify>
+    </event>
+
+    <event name="Cyclic Lateral -">
+      <condition>simulation/sim-time-sec  ge  20.</condition>
+      <set name="fcs/throttle-cmd-norm[0]" value="0.0"/>
+      <set name="fcs/advance-cmd-norm[0]"  value="0.0"/>
+      <set name="fcs/elevator-cmd-norm[0]" value="0.0"/>
+      <set name="fcs/aileron-cmd-norm[0]"  value="-1.0"/>
+      <set name="fcs/rudder-cmd-norm[0]"   value="0.0"/>
+      <notify>
+        <property> fcs/throttle-pos-norm </property>
+        <property> propulsion/engine/collective-ctrl-rad </property>
+        <property> propulsion/engine/lateral-ctrl-rad </property>
+        <property> propulsion/engine/longitudinal-ctrl-rad </property>
+        <property> propulsion/engine[1]/antitorque-ctrl-rad </property>
+      </notify>
+    </event>
+
+    <event name="Cyclic Longitudinal +">
+      <condition>simulation/sim-time-sec  ge  25.</condition>
+      <set name="fcs/throttle-cmd-norm[0]" value="0.0"/>
+      <set name="fcs/advance-cmd-norm[0]"  value="0.0"/>
+      <set name="fcs/elevator-cmd-norm[0]" value="1.0"/>
+      <set name="fcs/aileron-cmd-norm[0]"  value="0.0"/>
+      <set name="fcs/rudder-cmd-norm[0]"   value="0.0"/>
+      <notify>
+        <property> fcs/throttle-pos-norm </property>
+        <property> propulsion/engine/collective-ctrl-rad </property>
+        <property> propulsion/engine/lateral-ctrl-rad </property>
+        <property> propulsion/engine/longitudinal-ctrl-rad </property>
+        <property> propulsion/engine[1]/antitorque-ctrl-rad </property>
+      </notify>
+    </event>    
+
+    <event name="Cyclic Longitudinal -">
+      <condition>simulation/sim-time-sec  ge  30.</condition>
+      <set name="fcs/throttle-cmd-norm[0]" value="1.0"/>
+      <set name="fcs/advance-cmd-norm[0]"  value="0.0"/>
+      <set name="fcs/elevator-cmd-norm[0]" value="-1.0"/>
+      <set name="fcs/aileron-cmd-norm[0]"  value="0.0"/>
+      <set name="fcs/rudder-cmd-norm[0]"   value="0.0"/>
+      <notify>
+        <property> fcs/throttle-pos-norm </property>
+        <property> propulsion/engine/collective-ctrl-rad </property>
+        <property> propulsion/engine/lateral-ctrl-rad </property>
+        <property> propulsion/engine/longitudinal-ctrl-rad </property>
+        <property> propulsion/engine[1]/antitorque-ctrl-rad </property>
+      </notify>
+    </event>    
+
+    <event name="Torque Pedal +">
+      <condition>simulation/sim-time-sec  ge  35.</condition>
+      <set name="fcs/throttle-cmd-norm[0]" value="1.0"/>
+      <set name="fcs/advance-cmd-norm[0]"  value="0.0"/>
+      <set name="fcs/elevator-cmd-norm[0]" value="0.0"/>
+      <set name="fcs/aileron-cmd-norm[0]"  value="0.0"/>
+      <set name="fcs/rudder-cmd-norm[0]"   value="1.0"/>
+      <notify>
+        <property> fcs/throttle-pos-norm </property>
+        <property> propulsion/engine/collective-ctrl-rad </property>
+        <property> propulsion/engine/lateral-ctrl-rad </property>
+        <property> propulsion/engine/longitudinal-ctrl-rad </property>
+        <property> propulsion/engine[1]/antitorque-ctrl-rad </property>
+      </notify>
+    </event>    
+
+    <event name="Torque Pedal -">
+      <condition>simulation/sim-time-sec  ge  40.</condition>
+      <set name="fcs/throttle-cmd-norm[0]" value="1.0"/>
+      <set name="fcs/advance-cmd-norm[0]"  value="0.0"/>
+      <set name="fcs/elevator-cmd-norm[0]" value="0.0"/>
+      <set name="fcs/aileron-cmd-norm[0]"  value="0.0"/>
+      <set name="fcs/rudder-cmd-norm[0]"   value="-1.0"/>
+      <notify>
+        <property> fcs/throttle-pos-norm </property>
+        <property> propulsion/engine/collective-ctrl-rad </property>
+        <property> propulsion/engine/lateral-ctrl-rad </property>
+        <property> propulsion/engine/longitudinal-ctrl-rad </property>
+        <property> propulsion/engine[1]/antitorque-ctrl-rad </property>
+      </notify>
+    </event>
+
+    <event name="Center Everything">
+      <condition>simulation/sim-time-sec  ge  45</condition>
+      <set name="fcs/throttle-cmd-norm[0]" value="0.0"/>
+      <set name="fcs/advance-cmd-norm[0]"  value="0.0"/>
+      <set name="fcs/elevator-cmd-norm[0]" value="0.0"/>
+      <set name="fcs/aileron-cmd-norm[0]"  value="0.0"/>
+      <set name="fcs/rudder-cmd-norm[0]"  value="0.0"/>
+      <notify>
+        <property> fcs/throttle-pos-norm </property>
+        <property> propulsion/engine/collective-ctrl-rad </property>
+        <property> propulsion/engine/lateral-ctrl-rad </property>
+        <property> propulsion/engine/longitudinal-ctrl-rad </property>
+        <property> propulsion/engine[1]/antitorque-ctrl-rad </property>
+      </notify>
+    </event>
+
+  </run>
+</runscript>
+    
+    
+    

@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+    <pid-controller>
+        <name>Pedal assist ground</name>
+        <debug>false</debug>
+        <enable>
+            <condition>
+                <and>
+                    <property>controls/flight/auto-pedals</property>
+                    <property>gear/gear/wow</property>
+                </and>
+            </condition>
+        </enable>
+        <input>
+            <property>orientation/yaw-rate-degps</property>
+        </input>
+        <reference>
+            <value>0</value>
+        </reference>
+        <output>
+            <property>controls/flight/rudder</property>
+        </output>
+        <config>
+            <Kp>0.15</Kp>
+            <beta>1.0</beta>
+            <alpha>0.1</alpha>
+            <gamma>0.0</gamma>
+            <Ti>2</Ti>
+            <Td>0.00001</Td>
+            <min>-1</min>
+            <max>1</max>
+        </config>
+    </pid-controller>
+
+    <pid-controller>
+        <name>Pedal assist low</name>
+        <debug>false</debug>
+        <enable>
+            <condition>
+                <and>
+                    <property>controls/flight/auto-pedals</property>
+                    <not>
+                        <property>gear/gear/wow</property>
+                    </not>
+                    <less-than>
+                        <property>velocities/airspeed-kt</property>
+                        <value>50</value>
+                    </less-than>
+                </and>
+            </condition>
+        </enable>
+        <input>
+            <property>orientation/yaw-rate-degps</property>
+        </input>
+        <reference>
+            <property>orientation/roll-deg</property>
+            <scale>0.5</scale>
+        </reference>
+        <output>
+            <property>controls/flight/rudder</property>
+        </output>
+        <config>
+            <Kp>0.15</Kp>
+            <beta>1.0</beta>
+            <alpha>0.1</alpha>
+            <gamma>0.0</gamma>
+            <Ti>1</Ti>
+            <Td>0.00001</Td>
+            <min>-1</min>
+            <max>1</max>
+        </config>
+    </pid-controller>
+
+    <filter>
+        <name>N1toRPM</name>
+        <debug>false</debug>
+        <feedback-if-disabled>false</feedback-if-disabled>
+        <initialize-to>output</initialize-to>
+        <input>
+            <property>engines/engine/n1</property>
+            <scale>20</scale>
+        </input>
+        <output>engines/engine/rpm</output>
+        <type>noise-spike</type>
+        <max-rate-of-change>300</max-rate-of-change>
+    </filter>
+
+    <filter>
+        <name>carbtemp</name>
+        <debug>false</debug>
+        <feedback-if-disabled>false</feedback-if-disabled>
+        <initialize-to>output</initialize-to>
+        <input>
+            <property>engines/engine/on</property>
+            <scale>-15</scale>
+        </input>
+        <output>engines/engine/carb-temp-offset</output>
+        <type>noise-spike</type>
+        <max-rate-of-change>0.2</max-rate-of-change>
+    </filter>
+
+    <filter>
+        <name>CylHead</name>
+        <debug>false</debug>
+        <feedback-if-disabled>false</feedback-if-disabled>
+        <initialize-to>input</initialize-to>
+        <input>
+            <property>engines/engine/on</property>
+        </input>
+        <output>engines/engine/cylhd-norm</output>
+        <type>noise-spike</type>
+        <max-rate-of-change>0.01</max-rate-of-change>
+    </filter>
+
+</PropertyList>
+

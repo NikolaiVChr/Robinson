@@ -1,0 +1,288 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+    <path>r22.ac</path>
+
+    <nasal>
+        <load>
+            var livery_update = aircraft.livery_update.new("Aircraft/R22/Models/Liveries", 10);
+        </load>
+
+        <unload>
+            livery_update.stop();
+        </unload>
+    </nasal>
+
+    <animation>
+      <type>material</type>
+      <object-name>Boom</object-name>
+      <object-name>Fuselage</object-name>
+      <object-name>Ldoor</object-name>
+      <object-name>Rdoor</object-name>
+      <property-base>sim/model/livery</property-base>
+      <texture-prop>texture</texture-prop>
+      <texture>paint1.png</texture>
+    </animation>
+
+    <effect>
+      <inherits-from>Aircraft/R22/Models/Effects/skin-reflect</inherits-from>
+      <object-name>Ldoor</object-name>
+      <object-name>Rdoor</object-name>
+      <object-name>Fuselage</object-name>
+      <object-name>Boom</object-name>
+    </effect>
+
+    <model>
+        <path>Aircraft/R22/Models/interior.xml</path>
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>0</y-m>
+            <z-m>0</z-m>
+            <pitch-deg>0</pitch-deg>
+        </offsets>
+    </model>
+
+    <animation>
+        <type>select</type>
+        <object-name>Ldoor</object-name>
+        <object-name>Ldoor.panel</object-name>
+        <object-name>Rdoor</object-name>
+        <object-name>Rdoor.panel</object-name>
+        <object-name>Ldoor.glass</object-name>
+        <object-name>Rdoor.glass</object-name>
+        <condition>
+            <not>
+                <property>sim/model/doors-removed</property>
+            </not>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>shader</type>
+        <shader>chrome</shader>
+        <texture>chrome2.png</texture>
+        <object-name>glass</object-name>
+        <object-name>Rdoor.glass</object-name>
+        <object-name>Ldoor.glass</object-name>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>glass</object-name>
+        <object-name>Rdoor.glass</object-name>
+        <object-name>Ldoor.glass</object-name>
+        <condition>
+            <not>
+                <property>sim/current-view/internal</property>
+            </not>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Beacon</object-name>
+        <object-name>Strobe</object-name>
+        <condition>
+                <property>systems/electrical/outputs/norm/strobe</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Nav.red</object-name>
+        <object-name>Nav.green</object-name>
+        <condition>
+            <greater-than>
+                <property>systems/electrical/outputs/norm/nav-lights</property>
+                <value>0.1</value>
+            </greater-than>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>flare</object-name>
+        <object-name>Llights.001</object-name>
+        <condition>
+            <property>systems/electrical/outputs/norm/landing-lights</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Mblade1</object-name>
+        <object-name>Mblade2</object-name>
+        <condition>
+            <less-than>
+                <property>rotors/main/rpm</property>
+                <value>400</value>
+            </less-than>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Fblade1</object-name>
+        <object-name>Fblade2</object-name>
+        <condition>
+            <greater-than>
+                <property>rotors/main/rpm</property>
+                <value>399.99</value>
+            </greater-than>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Tblades</object-name>
+        <condition>
+            <less-than>
+                <property>rotors/tail/rpm</property>
+                <value>900</value>
+            </less-than>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Tdisc</object-name>
+        <condition>
+            <greater-than>
+                <property>rotors/tail/rpm</property>
+                <value>899.99</value>
+            </greater-than>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>spin</type>
+        <object-name>Tblades</object-name>
+        <object-name>Tailshaft</object-name>
+        <property>rotors/tail/rpm</property>
+        <center>
+            <x-m>4.396</x-m>
+            <y-m>0</y-m>
+            <z-m>-0.934</z-m>
+        </center>
+        <axis>
+            <x>0.0</x>
+            <y>-1.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+
+
+<!-- Blade 1-->
+    <animation>
+        <type>rotate</type>
+        <object-name>Hub</object-name>
+        <object-name>Shaft</object-name>
+        <object-name>Mblade1</object-name>
+        <object-name>Fblade1</object-name>
+        <object-name>Hinge1</object-name>
+        <object-name>Plink1</object-name>
+        <property>rotors/main/blade/position-deg</property>
+        <center>
+            <x-m>0</x-m>
+            <y-m>0</y-m>
+            <z-m>0</z-m>
+        </center>
+        <axis>
+            <x>0.0</x>
+            <y>0.0</y>
+            <z>1.0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>Mblade1</object-name>
+        <object-name>Fblade1</object-name>
+        <property>rotors/main/blade/incidence-deg</property>
+        <center>
+            <x-m>0</x-m>
+            <y-m>0</y-m>
+            <z-m>0</z-m>
+        </center>
+        <axis>
+            <x>1.0</x>
+            <y>0.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>Mblade1</object-name>
+        <object-name>Fblade1</object-name>
+        <property>rotors/main/blade/flap-deg</property>
+        <center>
+            <x-m>-0</x-m>
+            <y-m>0</y-m>
+            <z-m>0.0</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>-1.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+
+
+
+<!-- Blade 2-->
+    <animation>
+        <type>rotate</type>
+        <object-name>Mblade2</object-name>
+        <object-name>Fblade2</object-name>
+        <object-name>Plink2</object-name>
+        <object-name>Hinge2</object-name>
+        <property>rotors/main/blade[1]/position-deg</property>
+        <center>
+            <x-m>0</x-m>
+            <y-m>0</y-m>
+            <z-m>0</z-m>
+        </center>
+        <axis>
+            <x>0.0</x>
+            <y>0.0</y>
+            <z>1.0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>Mblade2</object-name>
+        <object-name>Fblade2</object-name>
+        <property>rotors/main/blade[1]/incidence-deg</property>
+        <center>
+            <x-m>0</x-m>
+            <y-m>0</y-m>
+            <z-m>0</z-m>
+        </center>
+        <axis>
+            <x>1.0</x>
+            <y>0.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>Mblade2</object-name>
+        <object-name>Fblade2</object-name>
+        <property>rotors/main/blade[1]/flap-deg</property>
+        <center>
+            <x-m>0</x-m>
+            <y-m>0</y-m>
+            <z-m>0.0</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>-1.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+
+</PropertyList>
