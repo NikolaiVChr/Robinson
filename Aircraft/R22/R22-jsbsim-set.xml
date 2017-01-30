@@ -359,6 +359,15 @@ Syd Adams
                     <property>controls/electric/battery-switch</property>
                 </binding>
             </key>
+
+            <key n="121">
+                <name>y</name>
+                <desc>Yoke</desc>
+                <binding>
+                    <command>property-toggle</command>
+                    <property>sim/yokes-visible</property>
+                </binding>
+            </key>
         </keyboard>
     </input>
 
