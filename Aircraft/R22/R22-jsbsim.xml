@@ -41,17 +41,17 @@
    <vtailarea unit="FT2">   2.42 </vtailarea><!-- From syd's 3d model -->
    <vtailarm  unit="FT" >  14.60 </vtailarm> <!-- From syd's 3d model -->
    <location name="AERORP" unit="IN">
-     <x>100.00 </x>
+     <x>  0.00 </x>
      <y>  0.00 </y>
-     <z>-64.00 </z>
+     <z> -64.00 </z>
    </location>
    <location name="EYEPOINT" unit="M">
-     <x>   0.44 </x>
+     <x>   -0.54809 </x>
      <y>   0.00 </y>
-     <z>   0.83 </z>
+     <z>   -1.13992 </z>
    </location>
    <location name="VRP" unit="IN">
-     <x>100</x>
+     <x>0</x>
      <y>0</y>
      <z>0</z>
    </location>
@@ -63,7 +63,7 @@
    <izz unit="SLUG*FT2">      1030 </izz>
    <emptywt unit="LBS" >      839.6 </emptywt> <!-- POH - 10.4 lbs for doors -->
    <location name="CG" unit="IN">
-     <x>   106.0</x> <!-- POH -->
+     <x>   6.0</x> <!-- POH -->
      <y>   0.0 </y>
      <z>  -64. </z>  <!-- YASim -->
    </location>
@@ -71,9 +71,9 @@
    <pointmass name="Pilot">
      <weight unit="LBS"> 200 </weight>
      <location name="POINTMASS" unit="IN">
-       <x>78.0 </x> <!-- POH -->
+       <x>-22 </x> <!-- POH -->
        <y> 10.7 </y><!-- POH -->
-       <z>-71.</z><!-- YASim -->
+       <z>-71. </z><!-- YASim -->
      </location>
      <form shape="ball">
       <radius unit="FT"> 2 </radius>
@@ -83,7 +83,7 @@
    <pointmass name="Co-Pilot">
      <weight unit="LBS"> 200 </weight>
      <location name="POINTMASS" unit="IN">
-       <x>78.0 </x> <!-- POH -->
+       <x>-22 </x> <!-- POH -->
        <y>-9.3 </y><!-- POH -->
        <z>-71. </z><!-- YASim -->
      </location>
@@ -95,7 +95,7 @@
    <pointmass name="Doors">
      <weight unit="LBS"> 10.4 </weight>
      <location name="POINTMASS" unit="IN">
-       <x>77.5 </x> <!-- POH -->
+       <x>-22.5 </x> <!-- POH -->
        <y> 0 </y><!-- Centered +/-21 -->
        <z>-64.</z><!-- YASim -->
      </location>
@@ -106,64 +106,68 @@
  <ground_reactions>
 <!-- Gear locations from 3d model, X locations + 100 inches -->
   <contact type="STRUCTURE" name="LEFT_FWD">
-   <location unit="IN">
-     <x>   40.9 </x>
-     <y>  -36. </y>
-     <z>  -98. </z>
+   <location unit="M">
+     <x>   -1.4905 </x>
+     <y>  -0.91785 </y>
+     <z>  -2.51073 </z>
    </location>
    <static_friction>  0.80 </static_friction>
    <dynamic_friction> 0.50 </dynamic_friction>
    <rolling_friction> 0.50 </rolling_friction>
-   <spring_coeff unit="LBS/FT">       500. </spring_coeff>
+   <spring_coeff unit="LBS/FT">      6000. </spring_coeff>
    <damping_coeff unit="LBS/FT/SEC">  160. </damping_coeff>
+   <damping_coeff_rebound unit="LBS/FT/SEC"> 5000 </damping_coeff_rebound>
    <max_steer unit="DEG">0</max_steer>
    <brake_group>NONE</brake_group>
    <retractable>0</retractable>
   </contact>
 
   <contact type="STRUCTURE" name="LEFT_AFT">
-   <location unit="IN">
-     <x>  120. </x>
-     <y>  -38. </y>
-     <z> -104. </z>
+   <location unit="M">
+     <x>  0.46348 </x>
+     <y>  -0.91785 </y>
+     <z> -2.51073 </z>
    </location>
    <static_friction>  0.80 </static_friction>
    <dynamic_friction> 0.50 </dynamic_friction>
    <rolling_friction> 0.50 </rolling_friction>
-   <spring_coeff unit="LBS/FT">       600. </spring_coeff>
+   <spring_coeff unit="LBS/FT">      7000. </spring_coeff>
    <damping_coeff unit="LBS/FT/SEC">  200. </damping_coeff>
+   <damping_coeff_rebound unit="LBS/FT/SEC"> 5000 </damping_coeff_rebound>
    <max_steer unit="DEG">0</max_steer>
    <brake_group>NONE</brake_group>
    <retractable>0</retractable>
   </contact>
 
   <contact type="STRUCTURE" name="RIGHT_FWD">
-   <location unit="IN">
-     <x>  40.9 </x>
-     <y>  36. </y>
-     <z> -98. </z>
+   <location unit="M">
+     <x>   -1.4905 </x>
+     <y>  0.91785 </y>
+     <z>  -2.51073 </z>
    </location>
    <static_friction>  0.80 </static_friction>
    <dynamic_friction> 0.50 </dynamic_friction>
    <rolling_friction> 0.50 </rolling_friction>
-   <spring_coeff unit="LBS/FT">       500. </spring_coeff>
+   <spring_coeff unit="LBS/FT">      6000. </spring_coeff>
    <damping_coeff unit="LBS/FT/SEC">  160. </damping_coeff>
+   <damping_coeff_rebound unit="LBS/FT/SEC"> 5000 </damping_coeff_rebound>
    <max_steer unit="DEG">0</max_steer>
    <brake_group>NONE</brake_group>
    <retractable>0</retractable>
  </contact>
 
   <contact type="STRUCTURE" name="RIGHT_AFT">
-   <location unit="IN">
-     <x>  120. </x>
-     <y>   38. </y>
-     <z> -104. </z>
+   <location unit="M">
+     <x>  0.46348 </x>
+     <y>  0.91785 </y>
+     <z> -2.51073 </z>
    </location>
    <static_friction>  0.80 </static_friction>
    <dynamic_friction> 0.50 </dynamic_friction>
    <rolling_friction> 0.50 </rolling_friction>
-   <spring_coeff unit="LBS/FT">       600. </spring_coeff>
+   <spring_coeff unit="LBS/FT">      7000. </spring_coeff>
    <damping_coeff unit="LBS/FT/SEC">  200. </damping_coeff>
+   <damping_coeff_rebound unit="LBS/FT/SEC"> 5000 </damping_coeff_rebound>
    <max_steer unit="DEG">0</max_steer>
    <brake_group>NONE</brake_group>
    <retractable>0</retractable>
@@ -171,9 +175,9 @@
 
   <contact type="STRUCTURE" name="TAIL">
    <location unit="IN">
-     <x> 276. </x>
+     <x> 174.5 </x>
      <y>   0.0 </y>
-     <z> -71.  </z>
+     <z> -65.54  </z>
    </location>
    <static_friction>  0.80 </static_friction>
    <dynamic_friction> 0.50 </dynamic_friction>
@@ -196,7 +200,7 @@
  
  <contact type="STRUCTURE" name="CABIN LEFT">
    <location unit="IN">
-     <x> 100.0 </x>
+     <x>  0.0 </x>
      <y> -44.0 </y>
      <z> -30.0  </z>
    </location>
@@ -208,7 +212,7 @@
 
  <contact type="STRUCTURE" name="CABIN RIGHT">
    <location unit="IN">
-     <x> 100.0 </x>
+     <x>  0.0 </x>
      <y>  44.0 </y>
      <z> -30.0  </z>
    </location>
@@ -224,9 +228,9 @@
 <!-- Thruster locations from YASim  X locations + 100 inches -->
    <engine file="eng_io320-b2c">
     <location unit="IN">
-       <x>139. </x>
+       <x> 39. </x>
        <y>  0. </y>
-       <z>-71.</z>
+       <z>0.</z>
     </location>
     <orient unit="DEG">
       <pitch> 0.00 </pitch>
@@ -238,7 +242,7 @@
 
     <thruster file="r22_rotor">
     <location unit="IN">
-      <x>100.0 </x>
+      <x>  0.0 </x>
       <y>  0.0 </y>
       <z>  0.0 </z>
     </location>
@@ -251,7 +255,7 @@
   </engine>
    <engine file="electric_1hp_dummy">
     <location unit="IN">
-      <x> 273.0 </x>
+      <x> 173.0 </x>
       <y>  0.0 </y>
       <z>  0.0 </z>
     </location>
@@ -265,7 +269,7 @@
 
     <thruster file="r22_tail_rotor">
     <location unit="IN">
-      <x>  273.6</x>
+      <x>  173.6</x>
       <y>   -8. </y>
       <z>  -37. </z>
     </location>
@@ -279,7 +283,7 @@
 
   <tank type="FUEL" number="0" name="main tank">
      <location unit="IN">
-       <x>   108.6 </x> <!-- POH -->
+       <x>   008.6 </x> <!-- POH -->
        <y>   -11.0 </y> <!-- POH -->
        <z>   -71.3 </z> <!-- YASim -->
      </location>
@@ -291,7 +295,7 @@
 
   <tank type="FUEL" number="1" name="auxilary tank">
      <location unit="IN">
-       <x>  103.8 </x> <!-- POH -->
+       <x>  003.8 </x> <!-- POH -->
        <y>   11.2 </y> <!-- POH -->
        <z>  -71.3 </z> <!-- YASim -->
      </location>
