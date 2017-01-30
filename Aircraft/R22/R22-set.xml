@@ -10,6 +10,9 @@ Syd Adams
 
     <sim>
         <description>Robinson R22 Beta II</description>
+        <long-description>
+          Yasim version
+        </long-description>
         <author>Syd Adams, Maik Justus</author>
         <flight-model>yasim</flight-model>
         <aero>R22BetaII</aero>
@@ -17,6 +20,8 @@ Syd Adams
         <startup>
             <splash-texture>Aircraft/R22/splash.png</splash-texture>
         </startup>
+
+        <variant-of>R22-jsbsim</variant-of>
 
         <tutorials>
         <tutorial include="Tutorials/startup_tutorial.xml"/>

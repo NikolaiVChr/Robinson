@@ -10,6 +10,9 @@ Syd Adams
 
     <sim>
         <description>Robinson R22 Beta II</description>
+        <long-description>
+          JSBSim version
+        </long-description>
         <author>Syd Adams, Maik Justus Ron Jensen</author>
         <flight-model>jsb</flight-model>
         <aero>R22-jsbsim</aero>
