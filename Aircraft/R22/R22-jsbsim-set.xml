@@ -190,6 +190,10 @@ Syd Adams
                 <name>Ctrl A</name>
                 <desc>toggle auto-pedals</desc>
             </key>
+            <key>
+                <name>n/N</name>
+                <desc>throttle</desc>
+            </key>
         </help>
 
     <yokes-visible type="bool" userarchive="y">1</yokes-visible>
