@@ -44,6 +44,8 @@ NTSB/SIR-96/03
   <groundeffectshift unit="FT">          0.0 </groundeffectshift>
   <gearloss>                             0.0</gearloss>
 
+<!-- Nikolai V. Chr.: -->
 
+<maxrpm> 561 </maxrpm>
 
 </rotor>

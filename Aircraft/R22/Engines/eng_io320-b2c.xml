@@ -16,14 +16,22 @@
   <maxmp unit="INHG">          27.89 </maxmp> <!-- Should give a impedance factor of 0.073 -->
   <man-press-lag>               0.1  </man-press-lag> 
   <air-intake-impedance-factor> 0.073   </air-intake-impedance-factor>
-  <displacement unit="IN3">   320.0  </displacement>
   <maxhp>                     160.0  </maxhp>	
-  <bsfc>                        0.4  </bsfc>
+  <bsfc>                        0.4  </bsfc><!-- Note by Nikolai V. Chr.: change it to 14 gal/hr for 100% rated power -->
   <cycles>                      4.0  </cycles>
-  <idlerpm>                   550.0  </idlerpm>
-  <maxrpm>                   2652.0  </maxrpm> <!-- From Robinson R22 Manual -->
   <sparkfaildrop>               0.1 </sparkfaildrop>
   <starter-torque> 120 </starter-torque>
   <ram-air-factor> 0. </ram-air-factor> 
+
+  <!-- modified by Nikolai V. Chr. -->
+  <displacement unit="IN3">   319.8  </displacement><!-- From Engine Manual -->
+  <maxrpm>                   2700.0  </maxrpm> <!-- From Engine Manual -->
+  <idlerpm>                   600.0  </idlerpm> <!-- From people owning this engine -->
+
+  <!-- added by Nikolai V. Chr. -->
+  <bore unit="IN"> 5.125 </bore><!-- From Engine Manual -->
+  <stroke unit="IN"> 3.875 </stroke><!-- From Engine Manual -->
+  <cylinders> 4 </cylinders><!-- From Engine Manual -->
+  <compression-ratio> 8.5 </compression-ratio><!-- From Engine Manual -->
 </piston_engine>
 
